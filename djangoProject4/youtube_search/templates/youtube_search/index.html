@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+Video Search
+<body>
+<form method="POST">
+ <div>
+     {% csrf_token %}
+        <input type="text" name="search">
+      </div>
+      <p>
+        <button type="submit" > Search</button>
+      </p>
+    </div>
+    </form>
+
+   {% for Video_Information_list in videoInformationList %}
+<p>{{ Video_Information_list.title }}</p>
+<img src="{{ Video_Information_list.thumbnail }}" > </img>
+
+<a type="button" href="{{ Video_Information_list.url }}" >click to see video</a>
+{% endfor %}
+</body>
+</html>
